@@ -198,7 +198,7 @@ function LoginPage({ onLogin, onGoRegister }) {
                   <button style={{ ...S.btnPrimary, width: "100%", padding: "12px" }} onClick={handleLogin} disabled={loading}>
                     {loading ? "Verifying..." : "Login →"}
                   </button>
-                  S
+                  
                 </>
               ) : (
                 <OTPTab mobile={mobile} setMobile={setMobile} onLogin={onLogin} />

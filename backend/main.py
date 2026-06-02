@@ -371,3 +371,30 @@ def login(data: LoginRequest, db: Session = Depends(get_db)):
         mobile=profile.mobile,
         message="Login successful"
     )
+
+# =========================
+# ADMIN / DEBUG ENDPOINTS
+# =========================
+
+@app.get("/api/admin/dashboard")
+def dashboard(db: Session = Depends(get_db)):
+    return {
+        "total_citizens": db.query(CitizenProfileDB).count(),
+        "total_services": db.query(ServiceDB).count(),
+        "total_applications": db.query(ApplicationDB).count()
+    }
+
+
+@app.get("/api/admin/citizens")
+def get_all_citizens(db: Session = Depends(get_db)):
+    return db.query(CitizenProfileDB).all()
+
+
+@app.get("/api/admin/services")
+def get_all_services(db: Session = Depends(get_db)):
+    return db.query(ServiceDB).all()
+
+
+@app.get("/api/admin/applications")
+def get_all_applications(db: Session = Depends(get_db)):
+    return db.query(ApplicationDB).all()

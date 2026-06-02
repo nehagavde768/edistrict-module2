@@ -1,4 +1,4 @@
-const BASE = "http://localhost:8000";
+const BASE = "https://edistrict-module2.onrender.com";
 
 export const api = {
   login: async (mobile, aadhaar_last4) => {
